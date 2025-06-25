@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:superset/app_nav_bar/app_nav_bar.dart';
+import 'package:superset/nav_cubit.dart';
 import 'package:superset/string_constants.dart';
 
 void main() => runApp(const MainApp());
@@ -10,21 +13,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: StringConstants.appName,
-      home: AppNavBar()
+      home: BlocProvider(
+        create: (context) => NavCubit(),
+        child: const AppNavBar(),
+      ),
     );
-  }
-}
-
-final class AppNavBar extends StatefulWidget {
-  const AppNavBar({super.key});
-
-  @override
-  State<AppNavBar> createState() => _AppNavBarState();
-}
-
-class _AppNavBarState extends State<AppNavBar> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
