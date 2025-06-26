@@ -9,9 +9,6 @@ final class NavState extends Equatable {
   @override
   List<Object?> get props => [currentIndex];
 
-  /// Creates a copy of the current state with an optional new index.
-  /// If [currentIndex] is not provided, it retains the current index.
-  ///This is useful for updating the state without losing other properties.
   NavState copyWith({int? currentIndex}) {
     return NavState(
       currentIndex: currentIndex ?? this.currentIndex,

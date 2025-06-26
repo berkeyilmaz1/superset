@@ -5,8 +5,11 @@ final class BorderRadiusGeneral extends BorderRadius {
   const BorderRadiusGeneral.all() : super.all(const Radius.circular(24));
 
   /// Radius is 12 [Radius.circular]
-  const BorderRadiusGeneral.allLow() : super.all(const Radius.circular(12));
+  const BorderRadiusGeneral.allMedium() : super.all(const Radius.circular(12));
 
   /// Radius is 8 [Radius.circular]
-  const BorderRadiusGeneral.allVeryLow() : super.all(const Radius.circular(8));
+  const BorderRadiusGeneral.allSmall() : super.all(const Radius.circular(8));
+
+  /// Radius is 4 [Radius.circular]
+  const BorderRadiusGeneral.allVeryLow() : super.all(const Radius.circular(4));
 }

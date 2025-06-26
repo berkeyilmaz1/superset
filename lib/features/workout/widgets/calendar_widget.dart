@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:superset/constants/app_padings.dart';
-import 'package:superset/workout/widgets/calendar_card.dart';
+import 'package:superset/core/constants/app_padings.dart';
+import 'package:superset/features/workout/cubit/workout_cubit.dart';
+import 'package:superset/features/workout/widgets/calendar_card.dart';
 
 final class CalendarWidget extends StatefulWidget {
   const CalendarWidget({
     required this.onDateSelected,
     super.key,
   });
-  final void Function(int) onDateSelected;
+  final void Function(DateTime) onDateSelected;
 
   @override
   State<CalendarWidget> createState() => _CalendarWidgetState();
@@ -36,8 +38,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               onTap: () {
                 setState(() {
                   selectedIndex = index;
+                  context.read<WorkoutCubit>().selectDate(date);
                 });
-                widget.onDateSelected(index);
               },
             );
           }),

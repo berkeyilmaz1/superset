@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:superset/app_nav_bar/app_nav_bar.dart';
-import 'package:superset/workout/workout_view.dart';
+import 'package:superset/features/app_nav_bar/app_nav_bar.dart';
+import 'package:superset/features/workout/view/workout_view.dart';
 
 mixin AppNavBarMixin on State<AppNavBar> {
   final List<NavigationDestination> destinations = const [
