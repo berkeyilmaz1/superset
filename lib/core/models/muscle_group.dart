@@ -1,0 +1,16 @@
+enum MuscleGroup {
+  chest,
+  back,
+  shoulders,
+  biceps,
+  triceps,
+  calves,
+  abs,
+  core,
+  cardio,
+  glutes,
+  hamstrings,
+  quadriceps,
+  forearms,
+  trapezius,
+}
