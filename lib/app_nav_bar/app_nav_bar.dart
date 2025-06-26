@@ -17,7 +17,7 @@ class _AppNavBarState extends State<AppNavBar> with AppNavBarMixin {
     return BlocBuilder<NavCubit, NavState>(
       builder: (context, state) {
         return Scaffold(
-          body: IndexedStack(index: state.currentIndex, children: pages),
+          body: pages[state.currentIndex],
           bottomNavigationBar: NavigationBar(
             destinations: destinations,
             onDestinationSelected: (int index) =>

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:superset/app_nav_bar/app_nav_bar.dart';
+import 'package:superset/constants/string_constants.dart';
 import 'package:superset/nav_cubit.dart';
-import 'package:superset/string_constants.dart';
 
 void main() => runApp(const MainApp());
 
