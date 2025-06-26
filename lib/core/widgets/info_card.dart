@@ -25,7 +25,7 @@ final class InfoCard extends StatelessWidget {
             ),
             const SizedBox(width: 4),
             Text(
-              'number exercies',
+              '0 exercies',
               style: TextStyle(color: Colors.blue.shade600),
             ),
           ],

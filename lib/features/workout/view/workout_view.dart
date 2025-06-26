@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:muscle_selector/muscle_selector.dart';
 import 'package:superset/core/constants/app_padings.dart';
 import 'package:superset/core/widgets/info_card.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
@@ -19,6 +20,8 @@ final class WorkoutView extends StatefulWidget {
 }
 
 class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
+  final GlobalKey<MusclePickerMapState> _mapKey = GlobalKey();
+  final hasWorkout = true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,33 +47,14 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
                       children: [
                         const WorkoutHeader(),
                         const Divider(),
-
-                        const Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            spacing: 8,
-                            children: [
-                              Icon(
-                                Icons.fitness_center,
-                                size: 64,
-                                color: Colors.grey,
-                              ),
-                              Text(
-                                'No exercises logged yet',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                ),
-                              ),
-                              Text(
-                                'Add your first exercise to get started!',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        if (hasWorkout)
+                          CustomBodyMap(
+                            mapKey: _mapKey,
+                            // Pass the initial selected muscle groups
+                            initialSelectedGroups: const [],
+                          )
+                        else
+                          const NoExerciseLoggedAlert(),
                         CustomButton(
                           onPressed: () {},
                         ),
@@ -82,6 +66,77 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+final class NoExerciseLoggedAlert extends StatelessWidget {
+  const NoExerciseLoggedAlert({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        spacing: 8,
+        children: [
+          Icon(
+            Icons.fitness_center,
+            size: 64,
+            color: Colors.grey,
+          ),
+          Text(
+            'No exercises logged yet',
+            style: TextStyle(
+              fontSize: 16,
+            ),
+          ),
+          Text(
+            'Add your first exercise to get started!',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+final class CustomBodyMap extends StatelessWidget {
+  const CustomBodyMap({
+    required GlobalKey<MusclePickerMapState> mapKey,
+    super.key,
+    this.initialSelectedGroups,
+  }) : _mapKey = mapKey;
+
+  final GlobalKey<MusclePickerMapState> _mapKey;
+  final List<String>? initialSelectedGroups;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        /// This padding is used for the centering of the human body map
+        padding: const EdgeInsets.only(right: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            MusclePickerMap(
+              key: _mapKey,
+              map: Maps.BODY,
+              selectedColor: Colors.lightBlueAccent,
+              strokeColor: Colors.grey.shade800,
+              isEditing: true,
+              initialSelectedGroups: initialSelectedGroups,
+              onChanged: (muscles) {},
+            ),
+          ],
+        ),
       ),
     );
   }
