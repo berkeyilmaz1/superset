@@ -15,4 +15,8 @@ final class AppPadings extends EdgeInsets {
 
   /// Pading for the calendar widget, set to 16 pixels horizontally and 8 pixels vertically.
   const AppPadings.calendar() : super.symmetric(horizontal: 16, vertical: 8);
+
+  /// Padding for the button, set to 32 pixels horizontally and 16 pixels vertically.
+  const AppPadings.buttonPadding()
+    : super.symmetric(horizontal: 32, vertical: 16);
 }

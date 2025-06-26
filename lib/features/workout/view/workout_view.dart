@@ -7,6 +7,9 @@ import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
 import 'package:superset/features/workout/view/mixin/workout_view_mixin.dart';
 import 'package:superset/features/workout/widgets/calendar_widget.dart';
+import 'package:superset/features/workout/widgets/custom_button.dart';
+
+part '../widgets/workout_header.dart';
 
 final class WorkoutView extends StatefulWidget {
   const WorkoutView({super.key});
@@ -31,16 +34,46 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
                 },
               ),
               const Divider(),
-              const Expanded(
+              Expanded(
                 child: Card(
-                  margin: AppPadings.normal(),
+                  margin: const AppPadings.normal(),
                   elevation: 4,
                   child: Padding(
-                    padding: AppPadings.normal(),
+                    padding: const AppPadings.normal(),
                     child: Column(
                       children: [
-                        WorkoutHeader(),
-                        Divider(),
+                        const WorkoutHeader(),
+                        const Divider(),
+
+                        const Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            spacing: 8,
+                            children: [
+                              Icon(
+                                Icons.fitness_center,
+                                size: 64,
+                                color: Colors.grey,
+                              ),
+                              Text(
+                                'No exercises logged yet',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                'Add your first exercise to get started!',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        CustomButton(
+                          onPressed: () {},
+                        ),
                       ],
                     ),
                   ),
@@ -50,42 +83,6 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
           );
         },
       ),
-    );
-  }
-}
-
-final class WorkoutHeader extends StatelessWidget {
-  const WorkoutHeader({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Today's Workout",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              DateFormat(
-                'MMMM d, y',
-              ).format(context.watch<WorkoutCubit>().state.selectedDate),
-
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-          ],
-        ),
-        const Spacer(),
-        const InfoCard(),
-      ],
     );
   }
 }

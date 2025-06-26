@@ -22,7 +22,7 @@ final class CalendarCard extends StatelessWidget {
       onTap: onTap,
       child: Card(
         elevation: isSelected ? 4 : 1,
-        color: isSelected ? Colors.blue : Colors.white,
+        color: isSelected ? Colors.blue.shade600 : Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: const BorderRadiusGeneral.allVeryLow(),
           side: BorderSide(
