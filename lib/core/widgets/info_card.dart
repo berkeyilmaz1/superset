@@ -15,7 +15,7 @@ final class InfoCard extends StatelessWidget {
         borderRadius: const BorderRadiusGeneral.allVeryLow(),
       ),
       child: Padding(
-        padding: const AppPadings.small(),
+        padding: const AppPaddings.small(),
         child: Row(
           children: [
             Icon(

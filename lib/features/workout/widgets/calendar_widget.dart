@@ -24,7 +24,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Padding(
-        padding: const AppPadings.normal(),
+        padding: const AppPaddings.normal(),
         child: Row(
           children: List.generate(60, (index) {
             final date = DateTime.now().add(Duration(days: index));

@@ -30,7 +30,7 @@ final class CalendarCard extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const AppPadings.calendar(),
+          padding: const AppPaddings.calendar(),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             spacing: 4,

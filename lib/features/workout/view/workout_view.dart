@@ -42,10 +42,10 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
               const Divider(),
               Expanded(
                 child: Card(
-                  margin: const AppPadings.normal(),
+                  margin: const AppPaddings.normal(),
                   elevation: 4,
                   child: Padding(
-                    padding: const AppPadings.normal(),
+                    padding: const AppPaddings.normal(),
                     child: Column(
                       children: [
                         const WorkoutHeader(),

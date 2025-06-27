@@ -18,4 +18,6 @@ final class BorderRadiusGeneral extends BorderRadius {
         topLeft: const Radius.circular(16),
         topRight: const Radius.circular(16),
       );
+
+  
 }
