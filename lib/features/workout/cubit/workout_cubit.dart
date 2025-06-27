@@ -36,9 +36,8 @@ final class WorkoutCubit extends Cubit<WorkoutState> {
     }
   }
 
-
-  void createWorkout(){
-    final workout= Workout(
+  void createWorkout() {
+    final workout = Workout(
       date: state.selectedDate,
       logs: [
         WorkoutLog(
@@ -46,7 +45,6 @@ final class WorkoutCubit extends Cubit<WorkoutState> {
           exercise: Exercise(
             muscleGroup: MuscleGroup.chest,
             name: 'Bench Press',
-
           ),
           reps: 10,
           sets: 3,

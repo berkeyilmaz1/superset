@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       child: Text(
-        'Add Exercise',
+        'Create Workout',
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,

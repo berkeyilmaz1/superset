@@ -1,4 +1,5 @@
 part of '../view/workout_view.dart';
+
 final class NoExerciseLoggedAlert extends StatelessWidget {
   const NoExerciseLoggedAlert({
     super.key,
@@ -17,7 +18,7 @@ final class NoExerciseLoggedAlert extends StatelessWidget {
             color: Colors.grey,
           ),
           Text(
-            'No exercises logged yet',
+            'No workout logged yet',
             style: TextStyle(
               fontSize: 16,
             ),

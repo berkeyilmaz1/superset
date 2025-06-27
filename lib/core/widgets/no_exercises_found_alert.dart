@@ -26,12 +26,12 @@ final class NoExercisesFoundAlert extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Text(
+            const Text(
               'No exercises found',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-                color: Colors.grey[700],
+                color: Color.fromARGB(255, 10, 10, 10),
               ),
             ),
           ],

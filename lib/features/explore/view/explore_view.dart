@@ -5,23 +5,19 @@ import 'package:superset/core/constants/border_radius_general.dart';
 import 'package:superset/core/models/exercise.dart';
 import 'package:superset/core/models/muscle_group.dart';
 import 'package:superset/core/widgets/custom_loading.dart';
-import 'package:superset/core/widgets/drag_handle.dart';
 import 'package:superset/core/widgets/no_exercises_found_alert.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
 
-final class ExerciseSelectionBottomSheet extends StatefulWidget {
-  const ExerciseSelectionBottomSheet({super.key});
+final class ExploreView extends StatefulWidget {
+  const ExploreView({super.key});
 
   @override
-  State<ExerciseSelectionBottomSheet> createState() =>
-      _ExerciseSelectionBottomSheetState();
+  State<ExploreView> createState() => _ExploreViewState();
 }
 
-class _ExerciseSelectionBottomSheetState
-    extends State<ExerciseSelectionBottomSheet> {
+class _ExploreViewState extends State<ExploreView> {
   static const String _allMuscleGroupsKey = 'All';
-  static const double _bottomSheetHeightRatio = 0.7;
 
   String selectedMuscleGroup = _allMuscleGroupsKey;
   late final List<String> muscleGroups;
@@ -42,22 +38,9 @@ class _ExerciseSelectionBottomSheetState
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * _bottomSheetHeightRatio,
-      decoration: BoxDecoration(
-        color: Colors.grey[50],
-        borderRadius: const BorderRadiusGeneral.bottomSheet(),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, -2),
-          ),
-        ],
-      ),
-      child: Column(  
+    return SafeArea(
+      child: Column(
         children: [
-          const _ExerciseSelectionTitle(),
           _MuscleGroupChips(
             muscleGroups: muscleGroups,
             selectedMuscleGroup: selectedMuscleGroup,
@@ -85,33 +68,6 @@ class _ExerciseSelectionBottomSheetState
             ),
           ),
           _ExercisesList(selectedMuscleGroup: selectedMuscleGroup),
-        ],
-      ),
-    );
-  }
-}
-
-final class _ExerciseSelectionTitle extends StatelessWidget {
-  const _ExerciseSelectionTitle();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const AppPaddings.normal(),
-      child: const Column(
-        spacing: 16,
-        children: [
-          DragHandle(),
-          Text(
-            'Select an Exercise',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-              letterSpacing: -0.5,
-            ),
-          ),
         ],
       ),
     );
@@ -247,9 +203,7 @@ final class _ExerciseListItem extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {
-            Navigator.pop(context, exercise);
-          },
+          onTap: () {},
           borderRadius: const BorderRadiusGeneral.allMedium(),
           child: Padding(
             padding: const AppPaddings.normal(),
@@ -277,8 +231,7 @@ final class _ExerciseListItem extends StatelessWidget {
                 ),
                 const SizedBox(width: 16),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
                     children: [
                       Text(
                         exercise.name ?? 'Unknown Exercise',
@@ -289,7 +242,7 @@ final class _ExerciseListItem extends StatelessWidget {
                           letterSpacing: -0.2,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const Spacer(),
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,
@@ -309,19 +262,6 @@ final class _ExerciseListItem extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.green[50],
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.add_rounded,
-                    color: Colors.green[600],
-                    size: 20,
                   ),
                 ),
               ],

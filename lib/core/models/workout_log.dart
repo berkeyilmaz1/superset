@@ -3,11 +3,11 @@ import 'package:superset/core/models/exercise.dart';
 
 final class WorkoutLog with EquatableMixin {
   WorkoutLog({
-    required this.exercise,
-    required this.sets,
-    required this.reps,
-    required this.weight,
-    required this.date,
+    this.exercise,
+    this.sets,
+    this.reps,
+    this.weight,
+    this.date,
   });
 
   factory WorkoutLog.fromJson(Map<String, dynamic> json) {
@@ -19,11 +19,11 @@ final class WorkoutLog with EquatableMixin {
       date: DateTime.parse(json['date'] as String),
     );
   }
-  final Exercise exercise;
-  final int sets;
-  final int reps;
-  final double weight;
-  final DateTime date;
+  final Exercise? exercise;
+  final int? sets;
+  final int? reps;
+  final double? weight;
+  final DateTime? date;
 
   @override
   List<Object?> get props => [
