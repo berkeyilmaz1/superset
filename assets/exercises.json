@@ -1,0 +1,194 @@
+[
+  {
+    "name": "Bench Press",
+    "muscleGroup": "chest"
+  },
+  {
+    "name": "Incline Dumbbell Press",
+    "muscleGroup": "chest"
+  },
+  {
+    "name": "Barbell Bench Press",
+    "muscleGroup": "chest"
+  },
+  {
+    "name": "Dumbbell Bench Press",
+    "muscleGroup": "chest"
+  },
+  {
+    "name": "Chest Dips",
+    "muscleGroup": "chest"
+  },
+  {
+    "name": "Push Ups",
+    "muscleGroup": "chest"
+  },
+  {
+    "name": "Military Press",
+    "muscleGroup": "shoulders"
+  },
+  {
+    "name": "Overhead Press",
+    "muscleGroup": "shoulders"
+  },
+  {
+    "name": "Lateral Raises",
+    "muscleGroup": "shoulders"
+  },
+  {
+    "name": "Arnold Press",
+    "muscleGroup": "shoulders"
+  },
+  {
+    "name": "Front Raises",
+    "muscleGroup": "shoulders"
+  },
+  {
+    "name": "Russian Twists",
+    "muscleGroup": "obliques"
+  },
+  {
+    "name": "Hanging Leg Raises",
+    "muscleGroup": "obliques"
+  },
+  {
+    "name": "Side Plank",
+    "muscleGroup": "obliques"
+  },
+  {
+    "name": "Barbell Curl",
+    "muscleGroup": "biceps"
+  },
+  {
+    "name": "Hammer Curl",
+    "muscleGroup": "biceps"
+  },
+  {
+    "name": "Barbell Curls",
+    "muscleGroup": "biceps"
+  },
+  {
+    "name": "Concentration Curl",
+    "muscleGroup": "biceps"
+  },
+  {
+    "name": "Triceps Dips",
+    "muscleGroup": "triceps"
+  },
+  {
+    "name": "Skull Crushers",
+    "muscleGroup": "triceps"
+  },
+  {
+    "name": "Close-Grip Bench Press",
+    "muscleGroup": "triceps"
+  },
+  {
+    "name": "Tricep Pushdowns",
+    "muscleGroup": "triceps"
+  },
+  {
+    "name": "Overhead Dumbbell Extension",
+    "muscleGroup": "triceps"
+  },
+  {
+    "name": "Standing Calf Raises",
+    "muscleGroup": "calves"
+  },
+  {
+    "name": "Seated Calf Raises",
+    "muscleGroup": "calves"
+  },
+  {
+    "name": "Crunches",
+    "muscleGroup": "abs"
+  },
+  {
+    "name": "Plank",
+    "muscleGroup": "abs"
+  },
+  {
+    "name": "V-Ups",
+    "muscleGroup": "abs"
+  },
+  {
+    "name": "Hip Thrusts",
+    "muscleGroup": "glutes"
+  },
+  {
+    "name": "Glute Kickbacks",
+    "muscleGroup": "glutes"
+  },
+  {
+    "name": "Romanian Deadlifts",
+    "muscleGroup": "hamstrings"
+  },
+  {
+    "name": "Leg Curls",
+    "muscleGroup": "hamstrings"
+  },
+  {
+    "name": "Squats",
+    "muscleGroup": "quadriceps"
+  },
+  {
+    "name": "Leg Press",
+    "muscleGroup": "quadriceps"
+  },
+  {
+    "name": "Bulgarian Split Squat",
+    "muscleGroup": "quadriceps"
+  },
+  {
+    "name": "Wrist Curls",
+    "muscleGroup": "forearm"
+  },
+  {
+    "name": "Reverse Wrist Curls",
+    "muscleGroup": "forearm"
+  },
+  {
+    "name": "Shrugs",
+    "muscleGroup": "trapezius"
+  },
+  {
+    "name": "Barbell Upright Rows",
+    "muscleGroup": "trapezius"
+  },
+  {
+    "name": "Lat Pulldown",
+    "muscleGroup": "lats"
+  },
+  {
+    "name": "Pull-Ups",
+    "muscleGroup": "lats"
+  },
+  {
+    "name": "Bent Over Rows",
+    "muscleGroup": "lats"
+  },
+  {
+    "name": "Cable Rows",
+    "muscleGroup": "lats"
+  },
+  {
+    "name": "T-Bar Rows",
+    "muscleGroup": "lats"
+  },
+  {
+    "name": "Deadlifts",
+    "muscleGroup": "lowerBack"
+  },
+  {
+    "name": "Back Extensions",
+    "muscleGroup": "lowerBack"
+  },
+  {
+    "name": "Neck Flexion",
+    "muscleGroup": "neck"
+  },
+  {
+    "name": "Neck Extension",
+    "muscleGroup": "neck"
+  }
+]

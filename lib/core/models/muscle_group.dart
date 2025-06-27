@@ -13,7 +13,6 @@ enum MuscleGroup {
   trapezius('trapezius'),
   abductor('abductor'),
   adductors('adductors'),
-  harmstrings('hamstrings'),
   lats('lats'),
   quads('quads'),
   lowerBack('lower_back'),
