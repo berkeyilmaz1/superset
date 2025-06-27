@@ -11,9 +11,22 @@ final class Exercise with EquatableMixin {
   factory Exercise.fromJson(Map<String, dynamic> json) {
     return Exercise(
       name: json['name'] as String?,
-      muscleGroup: json['muscleGroup'] as MuscleGroup?,
+      muscleGroup: _parseMuscleGroup(json['muscleGroup'] as String?),
     );
   }
+
+  static MuscleGroup? _parseMuscleGroup(String? muscleGroupName) {
+    if (muscleGroupName == null) return null;
+
+    try {
+      return MuscleGroup.values.firstWhere(
+        (group) => group.name == muscleGroupName,
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
   final String? name;
   final MuscleGroup? muscleGroup;
 

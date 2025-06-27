@@ -9,10 +9,11 @@ import 'package:superset/features/workout/cubit/workout_state.dart';
 import 'package:superset/features/workout/view/mixin/workout_view_mixin.dart';
 import 'package:superset/features/workout/widgets/calendar_widget.dart';
 import 'package:superset/features/workout/widgets/custom_button.dart';
+import 'package:superset/features/workout/widgets/exercise_selection_bottom_sheet.dart';
 
+part '../widgets/custom_body_map.dart';
 part '../widgets/no_exercise_logged_alert.dart';
 part '../widgets/workout_header.dart';
-part '../widgets/custom_body_map.dart';
 
 final class WorkoutView extends StatefulWidget {
   const WorkoutView({super.key});
@@ -58,7 +59,18 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
                         else
                           const NoExerciseLoggedAlert(),
                         CustomButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            final workoutCubit = context.read<WorkoutCubit>();
+                            showModalBottomSheet<ExerciseSelectionBottomSheet>(
+                              context: context,
+                              builder: (context) {
+                                return BlocProvider.value(
+                                  value: workoutCubit,
+                                  child: const ExerciseSelectionBottomSheet(),
+                                );
+                              },
+                            );
+                          },
                         ),
                       ],
                     ),
