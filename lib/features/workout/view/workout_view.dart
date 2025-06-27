@@ -10,7 +10,9 @@ import 'package:superset/features/workout/view/mixin/workout_view_mixin.dart';
 import 'package:superset/features/workout/widgets/calendar_widget.dart';
 import 'package:superset/features/workout/widgets/custom_button.dart';
 
+part '../widgets/no_exercise_logged_alert.dart';
 part '../widgets/workout_header.dart';
+part '../widgets/custom_body_map.dart';
 
 final class WorkoutView extends StatefulWidget {
   const WorkoutView({super.key});
@@ -21,7 +23,7 @@ final class WorkoutView extends StatefulWidget {
 
 class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
   final GlobalKey<MusclePickerMapState> _mapKey = GlobalKey();
-  final hasWorkout = true;
+  final hasWorkout = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -66,77 +68,6 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-final class NoExerciseLoggedAlert extends StatelessWidget {
-  const NoExerciseLoggedAlert({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 8,
-        children: [
-          Icon(
-            Icons.fitness_center,
-            size: 64,
-            color: Colors.grey,
-          ),
-          Text(
-            'No exercises logged yet',
-            style: TextStyle(
-              fontSize: 16,
-            ),
-          ),
-          Text(
-            'Add your first exercise to get started!',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-final class CustomBodyMap extends StatelessWidget {
-  const CustomBodyMap({
-    required GlobalKey<MusclePickerMapState> mapKey,
-    super.key,
-    this.initialSelectedGroups,
-  }) : _mapKey = mapKey;
-
-  final GlobalKey<MusclePickerMapState> _mapKey;
-  final List<String>? initialSelectedGroups;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        /// This padding is used for the centering of the human body map
-        padding: const EdgeInsets.only(right: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            MusclePickerMap(
-              key: _mapKey,
-              map: Maps.BODY,
-              selectedColor: Colors.lightBlueAccent,
-              strokeColor: Colors.grey.shade800,
-              isEditing: true,
-              initialSelectedGroups: initialSelectedGroups,
-              onChanged: (muscles) {},
-            ),
-          ],
-        ),
       ),
     );
   }
