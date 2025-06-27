@@ -14,7 +14,6 @@ enum MuscleGroup {
   abductor('abductor'),
   adductors('adductors'),
   lats('lats'),
-  quads('quads'),
   lowerBack('lower_back'),
   neck('neck');
 

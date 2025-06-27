@@ -177,11 +177,11 @@
   },
   {
     "name": "Deadlifts",
-    "muscleGroup": "lowerBack"
+    "muscleGroup": "lower_back"
   },
   {
     "name": "Back Extensions",
-    "muscleGroup": "lowerBack"
+    "muscleGroup": "lower_back"
   },
   {
     "name": "Neck Flexion",
