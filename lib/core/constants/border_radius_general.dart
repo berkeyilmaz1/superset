@@ -12,4 +12,12 @@ final class BorderRadiusGeneral extends BorderRadius {
 
   /// Radius is 4 [Radius.circular]
   const BorderRadiusGeneral.allVeryLow() : super.all(const Radius.circular(4));
+
+  const BorderRadiusGeneral.bottomSheet()
+    : super.only(
+        topLeft: const Radius.circular(16),
+        topRight: const Radius.circular(16),
+      );
+
+  
 }

@@ -14,19 +14,19 @@ final class InfoCard extends StatelessWidget {
         color: Colors.blue.withOpacity(0.2),
         borderRadius: const BorderRadiusGeneral.allVeryLow(),
       ),
-      child: const Padding(
-        padding: AppPadings.small(),
+      child: Padding(
+        padding: const AppPaddings.small(),
         child: Row(
           children: [
             Icon(
               Icons.fitness_center_rounded,
               size: 16,
-              color: Colors.blue,
+              color: Colors.blue.shade600,
             ),
-            SizedBox(width: 4),
+            const SizedBox(width: 4),
             Text(
-              'number exercies',
-              style: TextStyle(color: Colors.blue),
+              '0 exercies',
+              style: TextStyle(color: Colors.blue.shade600),
             ),
           ],
         ),

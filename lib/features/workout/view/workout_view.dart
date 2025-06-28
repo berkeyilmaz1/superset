@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:muscle_selector/muscle_selector.dart';
 import 'package:superset/core/constants/app_padings.dart';
 import 'package:superset/core/widgets/info_card.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
 import 'package:superset/features/workout/view/mixin/workout_view_mixin.dart';
 import 'package:superset/features/workout/widgets/calendar_widget.dart';
+import 'package:superset/features/workout/widgets/custom_button.dart';
+import 'package:superset/features/workout/widgets/exercise_selection_bottom_sheet.dart';
+
+part '../widgets/custom_body_map.dart';
+part '../widgets/no_exercise_logged_alert.dart';
+part '../widgets/workout_header.dart';
 
 final class WorkoutView extends StatefulWidget {
   const WorkoutView({super.key});
@@ -16,6 +23,8 @@ final class WorkoutView extends StatefulWidget {
 }
 
 class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
+  final GlobalKey<MusclePickerMapState> _mapKey = GlobalKey();
+  final hasWorkout = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,16 +40,38 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
                 },
               ),
               const Divider(),
-              const Expanded(
+              Expanded(
                 child: Card(
-                  margin: AppPadings.normal(),
+                  margin: const AppPaddings.normal(),
                   elevation: 4,
                   child: Padding(
-                    padding: AppPadings.normal(),
+                    padding: const AppPaddings.normal(),
                     child: Column(
                       children: [
-                        WorkoutHeader(),
-                        Divider(),
+                        const WorkoutHeader(),
+                        const Divider(),
+                        if (hasWorkout)
+                          CustomBodyMap(
+                            mapKey: _mapKey,
+                            // Pass the initial selected muscle groups
+                            initialSelectedGroups: const [],
+                          )
+                        else
+                          const NoExerciseLoggedAlert(),
+                        CustomButton(
+                          onPressed: () {
+                            final workoutCubit = context.read<WorkoutCubit>();
+                            showModalBottomSheet<ExerciseSelectionBottomSheet>(
+                              context: context,
+                              builder: (context) {
+                                return BlocProvider.value(
+                                  value: workoutCubit,
+                                  child: const ExerciseSelectionBottomSheet(),
+                                );
+                              },
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -50,42 +81,6 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
           );
         },
       ),
-    );
-  }
-}
-
-final class WorkoutHeader extends StatelessWidget {
-  const WorkoutHeader({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Today's Workout",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              DateFormat(
-                'MMMM d, y',
-              ).format(context.watch<WorkoutCubit>().state.selectedDate),
-
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-          ],
-        ),
-        const Spacer(),
-        const InfoCard(),
-      ],
     );
   }
 }
