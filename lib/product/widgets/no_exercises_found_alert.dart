@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:superset/core/constants/app_padings.dart';
+import 'package:superset/product/constants/app_padings.dart';
 
 final class NoExercisesFoundAlert extends StatelessWidget {
   const NoExercisesFoundAlert({

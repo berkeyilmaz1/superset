@@ -13,16 +13,16 @@ final class WorkoutHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              "Today's Workout",
+              LocaleKeys.home_todays_workout,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-            ),
+            ).tr(),
             const SizedBox(height: 4),
             Text(
               DateFormat(
-                'MMMM d, y',
+                StringConstants.dateFormat,
               ).format(context.watch<WorkoutCubit>().state.selectedDate),
 
               style: const TextStyle(fontSize: 16, color: Colors.grey),

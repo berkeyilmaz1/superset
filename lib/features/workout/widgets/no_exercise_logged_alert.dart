@@ -7,29 +7,29 @@ final class NoExerciseLoggedAlert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         spacing: 8,
         children: [
-          Icon(
+          const Icon(
             Icons.fitness_center,
             size: 64,
             color: Colors.grey,
           ),
-          Text(
-            'No workout logged yet',
+          const Text(
+            LocaleKeys.alerts_no_workout_today,
             style: TextStyle(
               fontSize: 16,
             ),
-          ),
-          Text(
-            'Add your first exercise to get started!',
+          ).tr(),
+          const Text(
+            LocaleKeys.alerts_add_workout,
             style: TextStyle(
               fontSize: 16,
               color: Colors.grey,
             ),
-          ),
+          ).tr(),
         ],
       ),
     );

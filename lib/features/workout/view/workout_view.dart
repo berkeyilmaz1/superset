@@ -1,15 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:muscle_selector/muscle_selector.dart';
-import 'package:superset/core/constants/app_padings.dart';
-import 'package:superset/core/widgets/info_card.dart';
+import 'package:superset/features/exercise_selection.dart/view/exercise_selection_view.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
-import 'package:superset/features/workout/view/mixin/workout_view_mixin.dart';
 import 'package:superset/features/workout/widgets/calendar_widget.dart';
 import 'package:superset/features/workout/widgets/custom_button.dart';
-import 'package:superset/features/workout/widgets/exercise_selection_bottom_sheet.dart';
+import 'package:superset/product/constants/app_padings.dart';
+import 'package:superset/product/constants/string_constants.dart';
+import 'package:superset/product/initialize/localization/locale_keys.g.dart';
+import 'package:superset/product/widgets/info_card.dart';
 
 part '../widgets/custom_body_map.dart';
 part '../widgets/no_exercise_logged_alert.dart';
@@ -22,7 +24,7 @@ final class WorkoutView extends StatefulWidget {
   State<WorkoutView> createState() => _WorkoutViewState();
 }
 
-class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
+class _WorkoutViewState extends State<WorkoutView> {
   final GlobalKey<MusclePickerMapState> _mapKey = GlobalKey();
   final hasWorkout = false;
   @override
@@ -59,16 +61,16 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
                         else
                           const NoExerciseLoggedAlert(),
                         CustomButton(
+                          buttonText: LocaleKeys.button_texts_select_workout,
                           onPressed: () {
                             final workoutCubit = context.read<WorkoutCubit>();
-                            showModalBottomSheet<ExerciseSelectionBottomSheet>(
-                              context: context,
-                              builder: (context) {
-                                return BlocProvider.value(
+                            Navigator.of(context).push(
+                              MaterialPageRoute<ExerciseSelectionView>(
+                                builder: (context) => BlocProvider.value(
                                   value: workoutCubit,
-                                  child: const ExerciseSelectionBottomSheet(),
-                                );
-                              },
+                                  child: const ExerciseSelectionView(),
+                                ),
+                              ),
                             );
                           },
                         ),

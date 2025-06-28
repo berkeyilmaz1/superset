@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:superset/core/models/muscle_group.dart';
+import 'package:superset/product/models/muscle_group.dart';
 
 final class Exercise with EquatableMixin {
   Exercise({

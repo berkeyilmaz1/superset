@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:superset/core/models/exercise.dart';
-import 'package:superset/core/models/muscle_group.dart';
-import 'package:superset/core/models/workout.dart';
-import 'package:superset/core/models/workout_log.dart';
-import 'package:superset/core/service/exercise_service.dart';
+import 'package:superset/product/models/exercise.dart';
+import 'package:superset/product/models/muscle_group.dart';
+import 'package:superset/product/models/workout.dart';
+import 'package:superset/product/models/workout_log.dart';
+import 'package:superset/product/service/exercise_service.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
 
 final class WorkoutCubit extends Cubit<WorkoutState> {
@@ -73,5 +73,40 @@ final class WorkoutCubit extends Cubit<WorkoutState> {
       ],
       note: 'Bu antrenman çok güzeldir',
     );
+  }
+
+  void createWorkoutBucket(String? note) {
+    final workoutBucket = Workout(
+      date: state.selectedDate,
+      note: note,
+    );
+    emit(state.copyWith(workoutBucket: workoutBucket));
+  }
+
+  void addExerciseToWorkoutBucket(WorkoutLog log, String? note) {
+    // Eğer workoutBucket yoksa önce oluştur
+    if (state.workoutBucket == null) {
+      createWorkoutBucket(note);
+    }
+
+    final updatedLogs = List<WorkoutLog>.from(state.workoutBucket?.logs ?? [])
+      ..add(log);
+    final updatedWorkoutBucket = state.workoutBucket?.copyWith(
+      logs: updatedLogs,
+    );
+    emit(state.copyWith(workoutBucket: updatedWorkoutBucket));
+  }
+
+  void removeExerciseFromWorkoutBucket(WorkoutLog log) {
+    final updatedLogs = List<WorkoutLog>.from(state.workoutBucket?.logs ?? [])
+      ..remove(log);
+    final updatedWorkoutBucket = state.workoutBucket?.copyWith(
+      logs: updatedLogs,
+    );
+    emit(state.copyWith(workoutBucket: updatedWorkoutBucket));
+  }
+
+  void clearWorkoutBucket() {
+    emit(state.copyWith(workoutBucket: null));
   }
 }

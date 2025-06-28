@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:superset/core/constants/app_padings.dart';
-import 'package:superset/core/constants/border_radius_general.dart';
+import 'package:superset/product/constants/app_padings.dart';
+import 'package:superset/product/constants/border_radius_general.dart';
 
 final class InfoCard extends StatelessWidget {
   const InfoCard({
@@ -25,6 +25,7 @@ final class InfoCard extends StatelessWidget {
             ),
             const SizedBox(width: 4),
             Text(
+              ///todo
               '0 exercies',
               style: TextStyle(color: Colors.blue.shade600),
             ),

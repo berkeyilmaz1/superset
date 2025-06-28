@@ -1,0 +1,37 @@
+{
+    "alerts":{
+        "error": "An error occurred. Please try again.",
+        "success": "Operation completed successfully.",
+        "warning": "Please check your input.",
+        "no_exercises_found": "No exercises found.",
+        "loading": "Loading...",
+        "no_workout_today": "No workout scheduled for today.",
+        "add_workout":"Add your first exercise to get started!",
+        "unknow_muscle_group": "Unknown muscle group",
+        "unknow_exercise": "Unknown exercise"
+    },
+    "home":{
+        "todays_workout": "Today's Workout"
+    },
+    "selection":{
+        "selected_exercises":"Selected Exercises({})",
+        "select_exercise_title":"Select an Exercise"
+    },
+    "button_texts":{
+        "select_workout": "Select Workout",
+        "add_exercise": "Add Exercise",
+        "start_workout": "Start Workout",
+        "finish_workout": "Finish Workout",
+        "save_workout": "Save Workout"
+    },
+    "nav_bar":
+    {
+
+        "workouts": "Workouts",
+        "explore": "Explore",
+        "Body": "Body"
+    },
+    "explore":{
+        "explore_exercise_title": "Explore Exercises"
+    }
+}
