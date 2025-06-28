@@ -4,12 +4,12 @@ import 'package:intl/intl.dart';
 import 'package:muscle_selector/muscle_selector.dart';
 import 'package:superset/core/constants/app_padings.dart';
 import 'package:superset/core/widgets/info_card.dart';
+import 'package:superset/features/exercise_selection.dart/view/exercise_selection_view.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
 import 'package:superset/features/workout/view/mixin/workout_view_mixin.dart';
 import 'package:superset/features/workout/widgets/calendar_widget.dart';
 import 'package:superset/features/workout/widgets/custom_button.dart';
-import 'package:superset/features/exercise_selection.dart/view/exercise_selection_view.dart';
 
 part '../widgets/custom_body_map.dart';
 part '../widgets/no_exercise_logged_alert.dart';
@@ -59,6 +59,7 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
                         else
                           const NoExerciseLoggedAlert(),
                         CustomButton(
+                          buttonText: 'Create Workout',
                           onPressed: () {
                             final workoutCubit = context.read<WorkoutCubit>();
                             Navigator.of(context).push(

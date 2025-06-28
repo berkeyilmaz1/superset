@@ -10,6 +10,7 @@ import 'package:superset/core/widgets/no_exercises_found_alert.dart';
 import 'package:superset/features/exercise_selection.dart/view/mixin/exercise_selection_view_mixin.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
+import 'package:superset/features/workout/widgets/custom_button.dart';
 
 part '../widgets/bucket_exercise_item.dart';
 part '../widgets/exercise_list_item.dart';
@@ -61,6 +62,13 @@ class _ExerciseSelectionViewState extends State<ExerciseSelectionView>
                 const SelectedExercisesSection(),
               const CustomDivider(),
               ExercisesList(selectedMuscleGroup: selectedMuscleGroup),
+              Padding(
+                padding: const AppPaddings.large(),
+                child: CustomButton(
+                  onPressed: () {},
+                  buttonText: 'Save Workout',
+                ),
+              ),
             ],
           );
         },
