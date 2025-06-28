@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:superset/app_initialize.dart';
@@ -5,7 +6,7 @@ import 'package:superset/features/app_nav_bar/app_nav_bar.dart';
 import 'package:superset/features/app_nav_bar/cubit/nav_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/product/constants/string_constants.dart';
-import 'package:superset/product/initialize/main_localization.dart';
+import 'package:superset/product/initialize/localization/main_localization.dart';
 
 Future<void> main() async {
   await AppInitialize.init();
@@ -18,6 +19,9 @@ final class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       theme: ThemeData(
         useMaterial3: true,
         colorSchemeSeed: Colors.blue,
