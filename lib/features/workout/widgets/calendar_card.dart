@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:superset/core/constants/app_padings.dart';
-import 'package:superset/core/constants/border_radius_general.dart';
+import 'package:superset/product/constants/app_padings.dart';
+import 'package:superset/product/constants/border_radius_general.dart';
 
 final class CalendarCard extends StatelessWidget {
   const CalendarCard({

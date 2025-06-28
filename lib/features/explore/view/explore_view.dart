@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:superset/core/constants/app_padings.dart';
-import 'package:superset/core/constants/border_radius_general.dart';
-import 'package:superset/core/models/exercise.dart';
-import 'package:superset/core/models/muscle_group.dart';
-import 'package:superset/core/widgets/custom_loading.dart';
-import 'package:superset/core/widgets/no_exercises_found_alert.dart';
+import 'package:superset/product/constants/app_padings.dart';
+import 'package:superset/product/constants/border_radius_general.dart';
+import 'package:superset/product/models/exercise.dart';
+import 'package:superset/product/models/muscle_group.dart';
+import 'package:superset/product/widgets/custom_loading.dart';
+import 'package:superset/product/widgets/no_exercises_found_alert.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
 

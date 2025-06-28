@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:muscle_selector/muscle_selector.dart';
-import 'package:superset/core/constants/app_padings.dart';
-import 'package:superset/core/widgets/info_card.dart';
+import 'package:superset/product/constants/app_padings.dart';
+import 'package:superset/product/widgets/info_card.dart';
 import 'package:superset/features/exercise_selection.dart/view/exercise_selection_view.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
@@ -59,7 +59,7 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
                         else
                           const NoExerciseLoggedAlert(),
                         CustomButton(
-                          buttonText: 'Create Workout',
+                          buttonText: 'Select Workout',
                           onPressed: () {
                             final workoutCubit = context.read<WorkoutCubit>();
                             Navigator.of(context).push(

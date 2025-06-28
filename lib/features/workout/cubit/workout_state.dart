@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:superset/core/models/exercise.dart';
-import 'package:superset/core/models/workout.dart';
+import 'package:superset/product/models/exercise.dart';
+import 'package:superset/product/models/workout.dart';
 
 final class WorkoutState extends Equatable {
   const WorkoutState({

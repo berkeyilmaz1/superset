@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:superset/core/models/exercise.dart';
-import 'package:superset/core/models/muscle_group.dart';
-import 'package:superset/core/models/workout.dart';
-import 'package:superset/core/models/workout_log.dart';
-import 'package:superset/core/service/exercise_service.dart';
+import 'package:superset/product/models/exercise.dart';
+import 'package:superset/product/models/muscle_group.dart';
+import 'package:superset/product/models/workout.dart';
+import 'package:superset/product/models/workout_log.dart';
+import 'package:superset/product/service/exercise_service.dart';
 import 'package:superset/features/workout/cubit/workout_state.dart';
 
 final class WorkoutCubit extends Cubit<WorkoutState> {

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:superset/core/models/exercise.dart';
+import 'package:superset/product/models/exercise.dart';
 
 final class ExerciseService {
   Future<List<Exercise>> fetchExercises() async {

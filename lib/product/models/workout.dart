@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:superset/core/models/workout_log.dart';
+import 'package:superset/product/models/workout_log.dart';
 
 final class Workout with EquatableMixin {
   Workout({

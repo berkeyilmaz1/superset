@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:superset/core/models/muscle_group.dart';
-import 'package:superset/core/models/workout.dart';
+import 'package:superset/product/models/muscle_group.dart';
+import 'package:superset/product/models/workout.dart';
 import 'package:superset/features/exercise_selection.dart/view/exercise_selection_view.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 
