@@ -9,7 +9,7 @@ import 'package:superset/features/workout/cubit/workout_state.dart';
 import 'package:superset/features/workout/view/mixin/workout_view_mixin.dart';
 import 'package:superset/features/workout/widgets/calendar_widget.dart';
 import 'package:superset/features/workout/widgets/custom_button.dart';
-import 'package:superset/features/workout/widgets/exercise_selection_bottom_sheet.dart';
+import 'package:superset/features/exercise_selection.dart/view/exercise_selection_view.dart';
 
 part '../widgets/custom_body_map.dart';
 part '../widgets/no_exercise_logged_alert.dart';
@@ -61,14 +61,13 @@ class _WorkoutViewState extends State<WorkoutView> with WorkoutViewMixin {
                         CustomButton(
                           onPressed: () {
                             final workoutCubit = context.read<WorkoutCubit>();
-                            showModalBottomSheet<ExerciseSelectionBottomSheet>(
-                              context: context,
-                              builder: (context) {
-                                return BlocProvider.value(
+                            Navigator.of(context).push(
+                              MaterialPageRoute<ExerciseSelectionView>(
+                                builder: (context) => BlocProvider.value(
                                   value: workoutCubit,
-                                  child: const ExerciseSelectionBottomSheet(),
-                                );
-                              },
+                                  child: const ExerciseSelectionView(),
+                                ),
+                              ),
                             );
                           },
                         ),

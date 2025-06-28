@@ -74,4 +74,39 @@ final class WorkoutCubit extends Cubit<WorkoutState> {
       note: 'Bu antrenman çok güzeldir',
     );
   }
+
+  void createWorkoutBucket(String? note) {
+    final workoutBucket = Workout(
+      date: state.selectedDate,
+      note: note,
+    );
+    emit(state.copyWith(workoutBucket: workoutBucket));
+  }
+
+  void addExerciseToWorkoutBucket(WorkoutLog log, String? note) {
+    // Eğer workoutBucket yoksa önce oluştur
+    if (state.workoutBucket == null) {
+      createWorkoutBucket(note);
+    }
+
+    final updatedLogs = List<WorkoutLog>.from(state.workoutBucket?.logs ?? [])
+      ..add(log);
+    final updatedWorkoutBucket = state.workoutBucket?.copyWith(
+      logs: updatedLogs,
+    );
+    emit(state.copyWith(workoutBucket: updatedWorkoutBucket));
+  }
+
+  void removeExerciseFromWorkoutBucket(WorkoutLog log) {
+    final updatedLogs = List<WorkoutLog>.from(state.workoutBucket?.logs ?? [])
+      ..remove(log);
+    final updatedWorkoutBucket = state.workoutBucket?.copyWith(
+      logs: updatedLogs,
+    );
+    emit(state.copyWith(workoutBucket: updatedWorkoutBucket));
+  }
+
+  void clearWorkoutBucket() {
+    emit(state.copyWith(workoutBucket: null));
+  }
 }

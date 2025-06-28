@@ -3,3 +3,4 @@ analyzer:
   errors:
     public_member_api_docs: ignore
     deprecated_member_use: ignore
+    avoid_redundant_argument_values: ignore
