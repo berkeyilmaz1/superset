@@ -16,6 +16,7 @@ part '../widgets/exercise_list_item.dart';
 part '../widgets/exercise_selection_title.dart';
 part '../widgets/exercises_list.dart';
 part '../widgets/muscle_group_chips.dart';
+part '../widgets/selected_exercises_section.dart';
 
 final class ExerciseSelectionView extends StatefulWidget {
   const ExerciseSelectionView({super.key});
@@ -57,56 +58,7 @@ class _ExerciseSelectionViewState extends State<ExerciseSelectionView>
               if (state.workoutBucket != null &&
                   state.workoutBucket!.logs != null &&
                   state.workoutBucket!.logs!.isNotEmpty)
-                Container(
-                  constraints: const BoxConstraints(maxHeight: 200),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: const AppPaddings.normal(),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.check_circle,
-                              color: Colors.green[600],
-                              size: 20,
-                            ),
-                            const SizedBox(width: 8),
-                            Text(
-                              'Selected Exercises (${state.workoutBucket!.logs!.length})',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.grey[800],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          itemCount: state.workoutBucket?.logs?.length ?? 0,
-                          itemBuilder: (context, index) {
-                            final workoutLog =
-                                state.workoutBucket?.logs?[index];
-                            if (workoutLog == null) {
-                              return const SizedBox.shrink();
-                            }
-                            if (workoutLog.exercise == null) {
-                              return const SizedBox.shrink();
-                            }
-                            return BucketExerciseItem(
-                              exercise: workoutLog.exercise!,
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const SelectedExercisesSection(),
               const CustomDivider(),
               ExercisesList(selectedMuscleGroup: selectedMuscleGroup),
             ],
