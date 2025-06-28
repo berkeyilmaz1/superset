@@ -11,7 +11,7 @@ final class MainLocalization extends EasyLocalization {
         fallbackLocale: AppLocales.en.locale,
       );
 
-  static const String localizationPath = 'assets/translations/en.json';
+  static const String localizationPath = 'assets/translations';
 
   static List<Locale> appSupportedLocales = AppLocales.values
       .map(

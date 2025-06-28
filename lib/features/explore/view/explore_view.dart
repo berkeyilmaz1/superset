@@ -1,13 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:superset/features/workout/cubit/workout_cubit.dart';
+import 'package:superset/features/workout/cubit/workout_state.dart';
 import 'package:superset/product/constants/app_padings.dart';
 import 'package:superset/product/constants/border_radius_general.dart';
+import 'package:superset/product/initialize/localization/locale_keys.g.dart';
 import 'package:superset/product/models/exercise.dart';
 import 'package:superset/product/models/muscle_group.dart';
 import 'package:superset/product/widgets/custom_loading.dart';
 import 'package:superset/product/widgets/no_exercises_found_alert.dart';
-import 'package:superset/features/workout/cubit/workout_cubit.dart';
-import 'package:superset/features/workout/cubit/workout_state.dart';
 
 final class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -41,6 +43,14 @@ class _ExploreViewState extends State<ExploreView> {
     return SafeArea(
       child: Column(
         children: [
+          const Text(
+            LocaleKeys.explore_explore_exercise_title,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              letterSpacing: -0.5,
+            ),
+          ).tr(),
           _MuscleGroupChips(
             muscleGroups: muscleGroups,
             selectedMuscleGroup: selectedMuscleGroup,

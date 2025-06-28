@@ -1,4 +1,5 @@
 part of '../view/exercise_selection_view.dart';
+
 final class ExerciseListItem extends StatelessWidget {
   const ExerciseListItem({
     required this.exercise,
@@ -63,14 +64,14 @@ final class ExerciseListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      exercise.name ?? 'Unknown Exercise',
+                      exercise.name ?? LocaleKeys.alerts_unknow_exercise,
                       style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 16,
                         color: Colors.black87,
                         letterSpacing: -0.2,
                       ),
-                    ),
+                    ).tr(),
                     const SizedBox(height: 4),
                     Container(
                       padding: const EdgeInsets.symmetric(
@@ -82,13 +83,14 @@ final class ExerciseListItem extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
-                        exercise.muscleGroup?.name ?? 'Unknown Muscle Group',
+                        exercise.muscleGroup?.name ??
+                            LocaleKeys.alerts_unknow_muscle_group,
                         style: TextStyle(
                           color: Colors.blue[700],
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
-                      ),
+                      ).tr(),
                     ),
                   ],
                 ),

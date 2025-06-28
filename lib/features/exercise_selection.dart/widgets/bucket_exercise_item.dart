@@ -1,4 +1,5 @@
 part of '../view/exercise_selection_view.dart';
+
 final class BucketExerciseItem extends StatelessWidget {
   const BucketExerciseItem({
     required this.exercise,
@@ -54,21 +55,22 @@ final class BucketExerciseItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    exercise.name ?? 'Unknown Exercise',
+                    exercise.name ?? LocaleKeys.alerts_unknow_exercise,
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
                       color: Colors.black87,
                     ),
-                  ),
+                  ).tr(),
                   Text(
-                    exercise.muscleGroup?.name ?? 'Unknown',
+                    exercise.muscleGroup?.name ??
+                        LocaleKeys.alerts_unknow_muscle_group,
                     style: TextStyle(
                       color: Colors.green[700],
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
-                  ),
+                  ).tr(),
                 ],
               ),
             ),

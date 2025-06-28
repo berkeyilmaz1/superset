@@ -1,16 +1,18 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:superset/features/exercise_selection.dart/view/mixin/exercise_selection_view_mixin.dart';
+import 'package:superset/features/workout/cubit/workout_cubit.dart';
+import 'package:superset/features/workout/cubit/workout_state.dart';
+import 'package:superset/features/workout/widgets/custom_button.dart';
 import 'package:superset/product/constants/app_padings.dart';
 import 'package:superset/product/constants/border_radius_general.dart';
+import 'package:superset/product/initialize/localization/locale_keys.g.dart';
 import 'package:superset/product/models/exercise.dart';
 import 'package:superset/product/models/workout_log.dart';
 import 'package:superset/product/widgets/custom_divider.dart';
 import 'package:superset/product/widgets/custom_loading.dart';
 import 'package:superset/product/widgets/no_exercises_found_alert.dart';
-import 'package:superset/features/exercise_selection.dart/view/mixin/exercise_selection_view_mixin.dart';
-import 'package:superset/features/workout/cubit/workout_cubit.dart';
-import 'package:superset/features/workout/cubit/workout_state.dart';
-import 'package:superset/features/workout/widgets/custom_button.dart';
 
 part '../widgets/bucket_exercise_item.dart';
 part '../widgets/exercise_list_item.dart';
@@ -66,7 +68,7 @@ class _ExerciseSelectionViewState extends State<ExerciseSelectionView>
                 padding: const AppPaddings.large(),
                 child: CustomButton(
                   onPressed: () {},
-                  buttonText: 'Save Workout',
+                  buttonText: LocaleKeys.button_texts_save_workout,
                 ),
               ),
             ],

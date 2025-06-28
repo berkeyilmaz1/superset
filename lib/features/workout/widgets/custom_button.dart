@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:superset/product/constants/app_padings.dart';
 import 'package:superset/product/constants/border_radius_general.dart';
@@ -199,7 +200,7 @@ class _CustomButtonState extends State<CustomButton>
                               : _getTextColor().withOpacity(0.5),
                           letterSpacing: 0.5,
                         ),
-                      ),
+                      ).tr(),
                     ],
                   ),
                 ),

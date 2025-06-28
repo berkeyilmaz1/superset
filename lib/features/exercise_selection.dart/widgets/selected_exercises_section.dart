@@ -26,12 +26,16 @@ final class SelectedExercisesSection extends StatelessWidget {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      'Selected Exercises (${state.workoutBucket!.logs!.length})',
+                      LocaleKeys.selection_selected_exercises,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                         color: Colors.grey[800],
                       ),
+                    ).tr(
+                      args: [
+                        state.workoutBucket?.logs?.length.toString() ?? '0',
+                      ],
                     ),
                   ],
                 ),
