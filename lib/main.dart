@@ -2,8 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:superset/app_initialize.dart';
-import 'package:superset/features/app_nav_bar/app_nav_bar.dart';
 import 'package:superset/features/app_nav_bar/cubit/nav_cubit.dart';
+import 'package:superset/features/auth/cubit/auth_cubit.dart';
+import 'package:superset/features/auth/view/auth_wrapper.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/product/constants/string_constants.dart';
 import 'package:superset/product/initialize/localization/main_localization.dart';
@@ -31,19 +32,26 @@ final class MainApp extends StatelessWidget {
       home: MultiBlocProvider(
         providers: [
           BlocProvider(
+            create: (context) => AuthCubit(),
+          ),
+          BlocProvider(
             create: (context) => NavCubit(),
           ),
           BlocProvider(
             create: (context) => WorkoutCubit(),
           ),
         ],
-        child: const AppNavBar(),
+        child: const AuthWrapper(),
       ),
     );
   }
 }
-
 ///TODO: bottom sheet kaldır, onun yerine yeni bir sayfa aç, +ya basıldığında divider'ın üstüne yeni exercise ekle en alta da buton olarak save workout ekle,
 /// bunlar kullanıcının kayıtlı workoutlarında gözüksün, workout'ı kaydettiğinde firebase'e kaydet, firebase'den çektiğinde de listele
 /// yeni günde select workout olsun ordan kayıtlılar gözüksün veya yeni workout seçebilsin
 /// seçtiği workoutı da başlatabilsin,
+
+
+///todo:
+///upgrade ndk version
+///min sdk
