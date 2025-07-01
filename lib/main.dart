@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:superset/app_initialize.dart';
 import 'package:superset/features/app_nav_bar/cubit/nav_cubit.dart';
 import 'package:superset/features/auth/cubit/auth_cubit.dart';
 import 'package:superset/features/auth/view/auth_wrapper.dart';
 import 'package:superset/features/workout/cubit/workout_cubit.dart';
 import 'package:superset/product/constants/string_constants.dart';
+import 'package:superset/product/initialize/app_initialize.dart';
 import 'package:superset/product/initialize/localization/main_localization.dart';
 
 Future<void> main() async {

@@ -8,7 +8,32 @@
         "no_workout_today": "No workout scheduled for today.",
         "add_workout":"Add your first exercise to get started!",
         "unknow_muscle_group": "Unknown muscle group",
-        "unknow_exercise": "Unknown exercise"
+        "unknow_exercise": "Unknown exercise",
+        "failed_to_sign_out": "Failed to sign out. Please try again.",
+        "failed_to_reset_email":"Failed to send password reset email. Please try again.",
+        "failed_to_update_password": "Failed to update password. Please try again.",
+        "failed_to_delete_acc": "Failed to delete account. Please try again.",
+        "user_not_found": "No account found with this email address.",
+        "wrong_password": "Incorrect password. Please try again.",
+        "email_already_in_use": "An account already exists with this email address.",
+        "weak_password": "Password is too weak. Please choose a stronger password.",
+        "invalid_email": "Please enter a valid email address.",
+        "user_disabled": "This account has been disabled. Please contact support.",
+        "too_many_requests": "Too many attempts. Please try again later.",
+        "operation_not_allowed": "This operation is not allowed. Please contact support.",
+        "requires_recent_login": "Please sign in again to complete this action."
+    },
+    "service_alerts":{
+        "failed_to_create_user": "Failed to create user",
+        "failed_to_sign_in": "Failed to sign in",
+        "failed_to_sign_out": "Failed to sign out",
+        "failed_to_send_password_reset": "Failed to send password reset email",
+        "failed_to_update_password": "Failed to update password",
+        "failed_to_delete_user": "Failed to delete user",
+        "failed_to_save_user_data": "Failed to save user data",
+        "failed_to_get_user_data": "Failed to get user data",
+        "failed_to_update_user_data": "Failed to update user data",
+        "no_user_signed_in": "No user is currently signed in"
     },
     "home":{
         "todays_workout": "Today's Workout"

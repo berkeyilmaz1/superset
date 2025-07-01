@@ -18,7 +18,7 @@ mixin AppNavBarMixin on State<AppNavBar> {
     ),
     NavigationDestination(
       icon: const Icon(Icons.person_rounded),
-      label: 'Profile',
+      label: LocaleKeys.nav_bar_profile.tr(),
     ),
   ];
 

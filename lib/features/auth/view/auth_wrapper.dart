@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:superset/features/app_nav_bar/app_nav_bar.dart';
 import 'package:superset/features/auth/cubit/auth_cubit.dart';
 import 'package:superset/features/auth/cubit/auth_state.dart';
-import 'package:superset/features/auth/view/login_view.dart';
-import 'package:superset/features/auth/view/profile_setup_view.dart';
+import 'package:superset/features/auth/view/sign_in_screen.dart';
 
 final class AuthWrapper extends StatelessWidget {
   const AuthWrapper({super.key});
@@ -21,15 +20,12 @@ final class AuthWrapper extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
             );
-          
+
           case AuthStatus.unauthenticated:
+            return const SignInScreen();
           case AuthStatus.error:
-            return const LoginView();
-          
+            return const SignInScreen();
           case AuthStatus.authenticated:
-            if (state.user?.isProfileComplete == false) {
-              return const ProfileSetupView();
-            }
             return const AppNavBar();
         }
       },
